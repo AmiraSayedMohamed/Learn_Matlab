@@ -18,7 +18,7 @@ In this course, you will learn:
 ### **Course Link**
 
 Watch the full course on my YouTube channel:  
-[Learn MATLAB - Complete Course](https://www.youtube.com/channel/your-channel-link)
+[Learn MATLAB - Complete Course](https://www.youtube.com/playlist?list=PLH_uDwiVYu9xAfcuTCXde6QbIC5ruEIJo)
 
 ---
 
