@@ -52,3 +52,6 @@ To get started with the code in this repository, follow these steps:
    git clone https://github.com/AmiraSayedMohamed/Learn_Matlab-course.git
 
 
+## ✨ About Me
+Hi! I'm Amira. I'm passionate about helping people learn MATLAB and other technical skills through clear and practical examples. If you have any questions or need support, don't hesitate to reach out!
+
