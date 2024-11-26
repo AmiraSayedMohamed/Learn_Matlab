@@ -16,25 +16,32 @@ hold on;
 % Plot the reverse rectangle
 plot(t, x, 'r', 'LineWidth', 1.5);
 
-% Draw lines
+% Draw vertical lines
 xL = [-1, -1]; % Starting and ending x-coordinates
 yL = [0.5, 4]; % Starting and ending y-coordinates (vertical line)
 plot(xL, yL, 'b-', 'LineWidth', 2);
 
-% Draw upper line
-xLU = [-1, 2]; % Starting and ending x-coordinates
-yLU = [2.5, 2.5]; % Starting and ending y-coordinates (horizontal line)
-plot(xLU, yLU, 'r-', 'LineWidth', 2);
-
-% Draw lines
 xL = [2, 2]; % Starting and ending x-coordinates
 yL = [0.5, 4]; % Starting and ending y-coordinates (vertical line)
 plot(xL, yL, 'b-', 'LineWidth', 2);
 
+% Draw upper horizontal line
+xLU = [-1, 2]; % Starting and ending x-coordinates
+yLU = [2.5, 2.5]; % Starting and ending y-coordinates (horizontal line)
+plot(xLU, yLU, 'r-', 'LineWidth', 2);
+
+% Draw arrows using quiver
+quiver(-1, 3, 0.6, 0, 0, 'k', 'LineWidth', 1.5, 'MaxHeadSize', 0.5); % Arrow at y=3
+quiver(-1, 3.5, 0.6, 0, 0, 'k', 'LineWidth', 1.5, 'MaxHeadSize', 0.5); % Arrow at y=3.5
+
+% Draw mirrored arrows
+quiver(2, 3, -0.6, 0, 0, 'k', 'LineWidth', 1.5, 'MaxHeadSize', 0.5); % Mirrored arrow at y=3
+quiver(2, 3.5, -0.6, 0, 0, 'k', 'LineWidth', 1.5, 'MaxHeadSize', 0.5); % Mirrored arrow at y=3.5
+
 % Add grid, labels, and title
+axis([-4 4 -2 6]);
 grid on;
 xlabel('X-axis');
 ylabel('Y-axis');
-title('Reverse Rectangle with Additional Lines');
-axis([-2 4 -3 5]);
+title('Reverse Rectangle with Additional Lines and Mirrored Arrows');
 hold off;
