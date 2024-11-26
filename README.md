@@ -1,4 +1,6 @@
 # Learn MATLAB - Complete Course
+![Alt Text](https://github.com/AmiraSayedMohamed/Learn_Matlab/blob/master/pictures/Executive%20Brief%20(2).jpg)
+
 
 Welcome to the **Learn MATLAB** course! 🚀
 
