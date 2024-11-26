@@ -1,4 +1,6 @@
 # Learn MATLAB - Complete Course
+![Alt Text](path/to/image)
+
 
 Welcome to the **Learn MATLAB** course! 🚀
 
