@@ -25,4 +25,30 @@ Watch the full course on my YouTube channel:
 ## 📂 **Repository Structure**
 
 This repository contains the following folders and files:
+/Course_Code
+    ├── basics
+    │   └── intro_to_matlab.m
+    ├── data_visualization
+    │   └── plot_graphs.m
+    ├── functions_and_scripts
+    │   └── create_function.m
+    ├── advanced_topics
+    │   └── matrix_operations.m
+    ├── projects
+    │   └── project_1.m
+    └── README.md
+
+
+Each folder corresponds to a section in the course, and you can find the associated code files here for your reference.
+
+---
+
+## 💻 **How to Use This Repository**
+
+To get started with the code in this repository, follow these steps:
+
+1. **Clone this repository**:
+   ```bash
+   git clone https://github.com/AmiraSayedMohamed/Learn_Matlab-course.git
+
 
