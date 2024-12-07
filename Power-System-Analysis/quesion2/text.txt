@@ -1,0 +1,1 @@
+this directory will contain solving using newton rahpson and matalb

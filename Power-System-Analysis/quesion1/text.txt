@@ -1,0 +1,1 @@
+hello this directory will contain solving using gaues method and newton raphson methon 
