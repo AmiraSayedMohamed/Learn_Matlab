@@ -1,75 +1,40 @@
-clc;
-clear all;
-close all;
+clc; clear; close all;
 
-% Read and verify the image
-imageFile = 'street.jpg';
-assert(isfile(imageFile), 'Image file "street.jpg" not found.');
-I = imread(imageFile);
-figure, imshow(I);
-title('Original Image');
+% Read and rotate the image
+I = imread('street.jpg');
+rotI = imrotate(I, 33, 'crop'); 
 
-% Rotate the image
-rotI = imrotate(I, 33, 'crop');
-figure, imshow(rotI);
-title('Rotated Image');
-
-% Convert to grayscale and apply Canny edge detection
-if size(rotI, 3) == 3 % Check if the image is RGB
-    grayImage = rgb2gray(rotI);
-else
-    grayImage = rotI; % If already grayscale
-end
-figure, imshow(grayImage);
-title('Grayscale Image');
-
+% Convert to grayscale and detect edges
+grayImage = rgb2gray(rotI);
 BW = edge(grayImage, 'canny');
-if nnz(BW) == 0
-    error('Edge detection failed. Binary image is empty.');
-end
-figure, imshow(BW);
-title('Binary Image (Canny Edge Detection)');
 
-% Perform Hough Transform
+% Perform Hough Transform and detect peaks
 [H, T, R] = hough(BW);
-figure, imshow(H, [], 'XData', T, 'YData', R, ...
-    'InitialMagnification', 'fit');
-title('Hough Transform');
-xlabel('\theta (degrees)');
-ylabel('\rho (pixels)');
-axis on;
-axis normal;
-hold on;
 
 % Detect peaks in the Hough Transform
 p = houghpeaks(H, 5, 'threshold', ceil(0.3 * max(H(:))));
-if isempty(p)
-    error('No peaks detected in the Hough Transform.');
-end
-x = T(p(:, 2)); % Theta values
-y = R(p(:, 1)); % Rho values
-plot(x, y, 's', 'Color', 'white');
 
 % Find and plot Hough lines
 lines = houghlines(BW, T, R, p, 'FillGap', 5, 'MinLength', 7);
-if isempty(lines)
-    error('No lines detected.');
-end
-figure, imshow(rotI);
+
+% Display the original rotated image with detected lines
+figure;
+imshow(rotI, 'InitialMagnification', 'fit');
 title('Detected Lines');
 hold on;
 
+% Plot the detected lines on the image
 for k = 1:length(lines)
-    % Get the endpoints of each line
     xy = [lines(k).point1; lines(k).point2];
     
-    % Plot the line
-    plot(xy(:, 1), xy(:, 2), 'LineWidth', 2, 'Color', 'green');
-    
-    % Plot the endpoints
+    % This starts a loop through all the lines detected by the houghlines function.
+    % Each line has two endpoints (point1 and point2).
+    % xy = [lines(k).point1; lines(k).point2]; combines the coordinates of the two endpoints into the variable xy.
+
+    plot(xy(:, 1), xy(:, 2), 'LineWidth', 2, 'Color', 'green'); % Plot each line on the image with a green line and a line width of 2.
     plot(xy(1, 1), xy(1, 2), 'x', 'LineWidth', 2, 'Color', 'yellow');
     plot(xy(2, 1), xy(2, 2), 'x', 'LineWidth', 2, 'Color', 'red');
 end
 
-% Display total number of lines detected
+% Display total lines detected
 disp(['Total lines detected: ', num2str(length(lines))]);
