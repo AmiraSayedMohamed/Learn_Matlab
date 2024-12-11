@@ -1,5 +1,5 @@
 clc
-clear alll
+clear all 
 close all
 warning off
 x = imread('img3.jpg');

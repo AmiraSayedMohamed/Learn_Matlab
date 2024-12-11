@@ -32,11 +32,6 @@ canny_edges = edge(x_gray, 'canny');
 imshow(canny_edges);
 title('Canny Filter');
 
-% Further processing with dilation
-figure;
-imshow(sobel_edges);
-title('Edge Detected Image (Sobel)');
-
 % Morphological processing using dilation
 se_horizontal = strel('line', 3, 0);   % Horizontal line structuring element
 se_vertical = strel('line', 3, 90);   % Vertical line structuring element

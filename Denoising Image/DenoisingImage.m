@@ -11,8 +11,7 @@ if size(noisyImage, 3) == 3
 end
 
 % Apply a Gaussian filter for denoising
-hsize = 5;   % Filter size (adjust as needed)
-sigma = 1.0; % Standard deviation (adjust as needed)
+sigma =1.0; % Standard deviation (adjust as needed)
 denoisedImage = imgaussfilt(noisyImage, sigma);
 
 % Create a figure with adjusted layout
